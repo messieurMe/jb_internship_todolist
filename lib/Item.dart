@@ -1,15 +1,19 @@
-import 'Pair.dart';
+library item;
 
+import 'Pair.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+import 'dart:convert';
+
+part 'Item.g.dart';
+
+@JsonSerializable()
 class Item {
+  Item(this.title);
+
   String title = "";
 
-  String getTitle() {
-    return title;
-  }
-
-  var tags = <Pair>[];
-
-  Item(this.title);
+  List<Pair> tags = <Pair>[];
 
   // ignore: non_constant_identifier_names
   Item.ILoveDartContructors(this.title, List<Pair> newTags) {
@@ -19,4 +23,8 @@ class Item {
       }
     }
   }
+
+  Map<String, dynamic> toJson() => _$ItemToJson(this);
+
+  factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 }

@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 //   "P-Dark": _genColor("26418f")
 // };
 
-Color genColorString(String code, {int op}) {
+Color genColorString(String code, {int? op}) {
   switch (code) {
     case "Primaary":
       return _getColor("5c6bc0", op: op);
@@ -26,7 +26,7 @@ Color genColorString(String code, {int op}) {
   }
 }
 
-Color _getColor(String s, {int op}) {
+Color _getColor(String s, {int? op}) {
   return Color.fromARGB(op == null ? 255 : op, _hexToInt(s, 0, 2),
       _hexToInt(s, 2, 4), _hexToInt(s, 4, 6));
 }
